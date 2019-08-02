@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<table class="table table-sm">
+    <thead class="bg-primary text-white">
+        <th>Device Name</th>
+        <th>Time</th>
+        <th>Mileage</th>
+        <th>Alarm</th>
+        <th>Overspeed</th>
+        <th>Stay</th>
+
+    </thead>
+    <tbody>
+        {% for i in data %}
+            <tr>
+                <td>{{i.name}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

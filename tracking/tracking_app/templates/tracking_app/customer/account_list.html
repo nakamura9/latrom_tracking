@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="bg-primary text-white">
+    <h3 class="display-3">SubAccounts</h3>
+</div>
+
+<div>
+    <a href='/create-customer/' target="_top" class="btn-sm btn-primary">+ New</a>
+</div>
+<hr class="my-2">
+<table class="table table-sm">
+    <thead class="bg-primary text-white">
+        <tr>
+            <th>Customer Name</th>
+            <th>Account</th>
+            <th>Role</th>
+            <th>Contacts</th>
+            <th>Phone #</th>
+            <th>Total Devices</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for d in object_list %}
+        <tr>
+            <td>{{d.name_of_customer}}</td>
+            <td>{{d.login_account}}</td>
+            <td>{{d.role_string}}</td>
+            <td>{{d.contacts}}</td>
+            <td>{{d.phone}}</td>
+            <td>{{d.total_devices}}</td>
+            <td>
+                <a href="/update-customer/{{d.pk}}" target='_top'>Edit</a>| <a href="">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

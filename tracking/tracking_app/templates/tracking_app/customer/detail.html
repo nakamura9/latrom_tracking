@@ -1,0 +1,50 @@
+{% extends 'window.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class='row'>
+        <div class="col-sm-12">
+            <table class='table'>
+                <tbody>
+                    <tr>
+                        <td>Customer Information</td>
+                        <td><b>Login Account: </b>{{object.login_account}}</td>
+                        <td><b>Role: </b>{{object.role_string}}</td>
+                        <td><b>Total Devices:</b> In Stock - {{object.total_devices}} Purchase - {{object.purchased}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bg-primary text-white"><i class="fas fa-chart-line"></i> Monitor</td>
+                        <td><b>Contacts: </b>{{object.contacts}}</td>
+                        <td><b>Phone: </b> {{object.phone}} </td>
+                        <td><b>Address: </b>{{object.address}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="btn-group">
+                <a href="/customer/{{object.pk}}/devices" target='customer-frame' class="btn btn-primary">Devices</a>
+                <a href="/customer/{{object.pk}}/sub-accounts" class="btn btn-primary"
+                    target='customer-frame'>SubAccounts</a>
+                <a href="/update-customer/{{object.pk}}" target='customer-frame' class="btn btn-primary">Information</a>
+            </div>
+        </div>
+    </div>
+    <hr class="my-2">
+    <div class="row">
+        <div class="col-sm-12">
+            <div style="width:100%;">
+                <iframe name="customer-frame" src="/customer/{{object.pk}}/devices" frameborder="0"
+                    style="width:100%;height:500px;"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

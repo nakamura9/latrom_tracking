@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% include 'common/nav_monitor.html' %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 bg-primary text-white">
+            <h3 class="display-3">Devices</h3>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <ul class="list-group">
+                <li class="list-group-item">All Target(0)</li>
+                <li class="list-group-item">7 Days Expired(1)</li>
+                <li class="list-group-item">60 Days Expired(2)</li>
+                <li class="list-group-item">Expired(23)</li>
+            </ul>
+        </div>
+        <div class="col-sm-9">
+                <hr class="my-2">
+                <a href="/create-device/" class="btn btn-primay" target="_top">+ New</a>
+                <hr class="my-2">
+
+                <table class="table table-sm">
+                    <thead class="bg-primary text-white">
+                        <tr>
+                            <th>Device Name</th>
+                            <th>ID Number</th>
+                            <th>SIM Card No.</th>
+                            <th>Type</th>
+                            <th>Creation Date</th>
+                            <th>Activation Date</th>
+                            <th>Expiration Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for d in object_list %}
+                        <tr>
+                            <td>{{d.name}}</td>
+                            <td>{{d.id_number}}</td>
+                            <td>{{d.sim_card_no}}</td>
+                            <td>{{d.type}}</td>
+                            <td>{{d.creation_date}}</td>
+                            <td>{{d.activation_time}}</td>
+                            <td>{{d.expired_date}}</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle btn-primary btn btn-sm" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                                Action
+                                            </button>
+                                    <div class="dropdown-menu" aria-labelledby="triggerId">
+                                        <a class="dropdown-item" href="#">Sell To</a>
+                                        <a class="dropdown-item disabled" href="#">Edit</a>
+                                    
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+        
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

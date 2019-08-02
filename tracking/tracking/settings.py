@@ -55,7 +55,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'tracking.urls'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-LOGIN_REDIRECT_URL = '/dashboard'
+LOGIN_REDIRECT_URL = '/business/home/'
 
 
 TEMPLATES = [

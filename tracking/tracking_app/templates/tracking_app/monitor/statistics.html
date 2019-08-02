@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% load crispy_forms_tags %}
+
+{% include 'common/nav_monitor.html' %}
+
+<style></style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class='bg-primary text-white' style="width:100%; padding:5px;">
+                <h4>Device Statistics</h4>
+            </div>
+            <div>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <a href="/reports/moving-overview/">
+                            Moving Overview
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="">
+                            Mileage Report
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="">
+                            Overspeed Details
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="">
+                            Stop Details
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="">
+                            Alarm Statistics
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="">
+                            Alarm Overview
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="">
+                            Alarm Details
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="">
+                            Geo-fence
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <div class='bg-primary text-white' style="padding:5px">
+                <h4 id='report-title'>Mileage Report</h4>
+            </div>
+            <hr class="my-2">
+
+            <div>
+                {% crispy form %}
+            </div>
+            <hr class="my-2">
+            <iframe name='report-frame' src="" frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
